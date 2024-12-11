@@ -1,8 +1,11 @@
 import React from "react";
 
-const StepPhoneEmail = () => {
+const StepPhoneEmail = ({ onNext }) => {
     return(
-        <div>StepPhoneEmail Page</div>
+        <>
+            <div>StepPhoneEmail Page</div>
+            <button onClick={onNext}>Next</button>
+        </>
     )
 }
 
