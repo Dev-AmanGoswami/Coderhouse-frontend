@@ -1,10 +1,10 @@
 import React,{useState} from "react";
-import StepPhoneEmail from "../Steps/StepPhoneEmail/StepPhoneEmail";
+import StepEmail from "../Steps/StepEmail/StepEmail";
 import StepOtp from "../Steps/StepOtp/StepOtp";
 
 
 const steps = {
-    1: StepPhoneEmail,
+    1: StepEmail,
     2: StepOtp
 }
 

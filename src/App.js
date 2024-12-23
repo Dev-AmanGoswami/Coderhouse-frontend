@@ -5,10 +5,9 @@ import Navigation from './components/global/navigation/Navigation';
 import Authenticate from './pages/Authenticate/Authenticate';
 import Activate from './pages/Activate/Activate';
 import Rooms from './pages/Rooms/Rooms';
-const isAuth = false;
-const user = {
-  activated: false
-}
+
+// Redux
+import { useSelector } from 'react-redux';
 
 function App() {
   return (
@@ -32,15 +31,17 @@ function App() {
 
 // Guest route is also a route component all route checks will be implemented here
 const GuestRoute = () => {
-  console.log("Aman");
+  const {isAuth} = useSelector((state) => state.auth);
   return isAuth ? <Navigate to="/rooms" /> : <Outlet />
 }
 
 const SemiProtectedRoute = () => {
+  const { isAuth, user } = useSelector((state) => state.auth);
   return !isAuth ? <Navigate to="/" /> : (isAuth && !user.activated) ? <Outlet /> : <Navigate to="/rooms" />;
 }
 
 const ProtectedRoute = () => {
+  const { isAuth, user } = useSelector((state) => state.auth);
   return !isAuth ? <Navigate to="/" /> : (isAuth && !user.activated) ? <Navigate to="/activate" /> : <Outlet />;
 }
 
