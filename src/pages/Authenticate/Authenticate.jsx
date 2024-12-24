@@ -15,7 +15,9 @@ const Authenticate = () => {
         setStep(step + 1);
     }
     return (
-        <div><Step onNext={ onNext }/></div>
+        <div className="cardWrapper">
+            <Step onNext={ onNext }/>
+        </div>
     );
 }
 

@@ -27,7 +27,6 @@ const StepOtp = ({ onNext }) => {
     }  
 
     return(
-        <div className={styles.cardWrapper}> 
             <Card title="Enter the code we just texted you" icon={<FaLock size={40} />}>
                 <TextInput value={otp} onChange={(e) => setOtp(e.target.value)} />
                 <div className={styles.actionButtonWrap}>
@@ -37,7 +36,6 @@ const StepOtp = ({ onNext }) => {
                     By entering your email, you're agreeing to our Terms of Service and Privacy Policy Thanks! 
                 </p>
             </Card>
-        </div>
     )
 }
 

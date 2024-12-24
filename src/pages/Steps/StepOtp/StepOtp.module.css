@@ -1,7 +1,3 @@
-.cardWrapper{
-    composes: cardWrapper from '../../../App.module.css';
-}
-
 .bottomParagraph{
     composes: bottomParagraph from '../StepEmail/StepEmail.module.css';
 }

@@ -6,11 +6,9 @@ const StepEmail = ({ onNext }) => {
     const Component = Email;
     return (
         <>
-            <div className={styles.cardWrapper}>
                 <div>
                     <Component onNext={onNext} />
                 </div>
-            </div>
         </>
     )
 }

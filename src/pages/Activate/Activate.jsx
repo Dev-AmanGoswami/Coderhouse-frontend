@@ -1,11 +1,10 @@
 import React,{useState} from "react";
-import StepEmail from "../Steps/StepEmail/StepEmail";
-import StepOtp from "../Steps/StepOtp/StepOtp";
-
+import StepName from "../Steps/StepName/StepName";
+import StepAvatar from "../Steps/StepAvatar/StepAvatar";
 
 const steps = {
-    1: StepEmail,
-    2: StepOtp
+    1: StepName,
+    2: StepAvatar
 }
 
 const Activate = () => {
@@ -15,7 +14,9 @@ const Activate = () => {
         setStep(step + 1);
     }
     return (
-        <div><Step onNext={onNext}/></div>
+        <div className="cardWrapper">
+            <Step onNext={onNext}/>
+        </div>
     );
 }
 
