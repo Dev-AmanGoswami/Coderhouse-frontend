@@ -1,15 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import Email from "./Email/Email";
-import styles from './StepEmail.module.css';
 
 const StepEmail = ({ onNext }) => {
     const Component = Email;
     return (
-        <>
-                <div>
-                    <Component onNext={onNext} />
-                </div>
-        </>
+        <div>
+            <Component onNext={onNext} />
+        </div>
     )
 }
 

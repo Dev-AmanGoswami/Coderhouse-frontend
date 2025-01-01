@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // Creating axios instance to create interceptors
-const api = axios.create({
+export const jsonApi = axios.create({
     baseURL: process.env.REACT_APP_API_URL,
     withCredentials: true,
     headers: {
@@ -10,8 +10,38 @@ const api = axios.create({
     }
 });
 
+export const formApi = axios.create({
+    baseURL: process.env.REACT_APP_API_URL,
+    withCredentials: true,
+    headers: {
+        'Content-Type' : "multipart/form-data",
+        Accept: 'application/json'
+    }
+});
+
+// Interceptors -> Sits between request and response
+// Config in first function gives all details of request and response
+formApi.interceptors.response.use((config) => { 
+    return config;
+},async (error)=>{
+    // Store original request
+    const originalRequest = error.config;
+    if (error.response.status === 401 && originalRequest && !originalRequest._isRetry) {
+        originalRequest._isRetry = true;
+        try {
+            // orignalRequest will be lost if we use jsonAPI or formAPI instance
+            await axios.get(`${process.env.REACT_APP_API_URL}/api/refresh`, {
+                withCredentials: true,
+            })
+            return formApi.request(originalRequest);
+        } catch (error) {
+            console.log(error.message);
+        }
+    }
+    throw error;
+});
+
 // List all the endpoints
-export const sendOtp = (data) => api.post('/api/send-otp', data);
-export const verifyOtp = (data) => api.post('/api/verify-otp',data);
-export const activate = (data) => api.post('/api/activate',data);
-export default api;
+export const sendOtp = (data) => jsonApi.post('/api/send-otp', data);
+export const verifyOtp = (data) => jsonApi.post('/api/verify-otp',data);
+export const activate = (formData) => formApi.post('/api/activate',formData);

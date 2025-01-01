@@ -1,10 +1,11 @@
 import { useState } from "react";
 import Card from "../../../../components/global/card/Card";
 import Button from '../../../../components/global/button/Button';
+import Loader from "../../../../components/global/loader/Loader";
 import TextInput from "../../../../components/global/TextInput/TextInput";
 import { MdOutlineMarkEmailUnread } from "react-icons/md";
 import { FaLongArrowAltRight } from "react-icons/fa";
-import styles from '../StepEmail.module.css';
+import styles from './Email.module.css';
 import { sendOtp } from "../../../../http";
 
 // Redux
@@ -13,16 +14,19 @@ import { setOtp } from "../../../../store/slices/authSlice";
 
 const Email = ({ onNext }) => {
     const [email, setEmail] = useState('');
+    const [loader, setLoader] = useState(false);
     const dispatch = useDispatch();
-
+    
     const submit = async () => {
         try {
             // Server request
+            setLoader(true);
             const { data } = await sendOtp({ email });
             dispatch(setOtp({
                 email: data.email,
                 hash: data.hash
             }))
+            setLoader(false);
             onNext();
         }catch(error){
             console.log("Error: ",error);
@@ -30,6 +34,7 @@ const Email = ({ onNext }) => {
     }
 
     return (
+        loader ? <Loader /> : 
         <Card title="Enter your Email" icon={<MdOutlineMarkEmailUnread size={40} />}>
             <TextInput value={email} onChange={(e) => setEmail(e.target.value)} />
             <div>

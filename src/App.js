@@ -5,12 +5,19 @@ import Navigation from './components/global/navigation/Navigation';
 import Authenticate from './pages/Authenticate/Authenticate';
 import Activate from './pages/Activate/Activate';
 import Rooms from './pages/Rooms/Rooms';
+import Loader from './components/global/loader/Loader';
 
 // Redux
 import { useSelector } from 'react-redux';
 
+// Hooks
+import { useLoadingWithRefresh } from './hooks/useLoadingWithRefresh';
+
 function App() {
+  // Refresh token rotation -> If page gets refreshed we will be getting new access tokens -> Token security
+  const { loader } = useLoadingWithRefresh();
   return (
+    loader ? <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}><Loader /></div> : 
     <BrowserRouter>
       <Navigation />
       <Routes>
@@ -31,7 +38,8 @@ function App() {
 
 // Guest route is also a route component all route checks will be implemented here
 const GuestRoute = () => {
-  const {isAuth} = useSelector((state) => state.auth);
+  const { isAuth, user } = useSelector((state) => state.auth);
+  console.log("Aman: ",isAuth,user);
   return isAuth ? <Navigate to="/rooms" /> : <Outlet />
 }
 

@@ -8,7 +8,7 @@ const initialState = {
         hash: ''
     } 
 }
-
+ 
 export const authSlice = createSlice({
     name: 'auth',
     initialState,

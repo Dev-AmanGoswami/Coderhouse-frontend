@@ -1,7 +1,7 @@
 .bottomParagraph{
-    composes: bottomParagraph from '../StepEmail/StepEmail.module.css';
+    composes: bottomParagraph from '../StepEmail/Email/Email.module.css';
 }
 
 .actionButtonWrap{
-    composes: actionButtonWrap from '../StepEmail/StepEmail.module.css';
+    composes: actionButtonWrap from '../StepEmail/Email/Email.module.css';
 }
