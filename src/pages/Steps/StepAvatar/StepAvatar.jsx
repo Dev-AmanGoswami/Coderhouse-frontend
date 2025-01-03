@@ -65,7 +65,7 @@ const StepAvatar = () => {
                 </label>
             </div>
             <div>
-                <Button text="Next" icon={<FaLongArrowAltRight size={20} onClick={ submit } />} />
+                <Button text="Next" icon={<FaLongArrowAltRight size={20} />} onClick={ submit } />
             </div>
         </Card>
     )

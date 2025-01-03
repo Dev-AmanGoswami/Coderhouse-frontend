@@ -25,7 +25,7 @@ const Home = () => {
                     We're working hard to get Codershouse ready for everyone! While we wrap up the finishing youches, we're adding people to make sure nothing breaks.
                 </p>
                 <div>
-                    <Button text="Let's Go" icon={<FaLongArrowAltRight size={20}/>} onClick={startRegister}/>
+                    <Button text="Let's Go" icon={<FaLongArrowAltRight size={20}/>} onClick={startRegister} />
                 </div>
                 <div className={styles.signinWrapper}>
                     <span className={styles.hasInvite}>Have an invite text?</span>

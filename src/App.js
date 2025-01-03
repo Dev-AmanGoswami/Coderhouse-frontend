@@ -39,7 +39,6 @@ function App() {
 // Guest route is also a route component all route checks will be implemented here
 const GuestRoute = () => {
   const { isAuth, user } = useSelector((state) => state.auth);
-  console.log("Aman: ",isAuth,user);
   return isAuth ? <Navigate to="/rooms" /> : <Outlet />
 }
 

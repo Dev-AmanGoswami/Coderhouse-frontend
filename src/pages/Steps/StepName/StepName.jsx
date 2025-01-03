@@ -29,7 +29,7 @@ const StepName = ({ onNext }) => {
                 People use real names at EchoRoom :) !
             </p>
             <div>
-                <Button text="Next" icon={<FaLongArrowAltRight size={20} onClick={ nextStep } />} />
+                <Button text="Next" icon={<FaLongArrowAltRight size={20} />} onClick={ nextStep } />
             </div>
         </Card>
     )
