@@ -1,7 +1,7 @@
 import { useState } from "react";
-import Card from "../../../../components/global/card/Card";
-import Button from '../../../../components/global/button/Button';
-import Loader from "../../../../components/global/loader/Loader";
+import Card from "../../../../components/global/Card/Card";
+import Button from '../../../../components/global/Button/Button';
+import Loader from "../../../../components/global/Loader/Loader";
 import TextInput from "../../../../components/global/TextInput/TextInput";
 import { MdOutlineMarkEmailUnread } from "react-icons/md";
 import { FaLongArrowAltRight } from "react-icons/fa";

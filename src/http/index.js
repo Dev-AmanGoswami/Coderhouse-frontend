@@ -64,3 +64,5 @@ export const sendOtp = (data) => jsonApi.post('/api/send-otp', data);
 export const verifyOtp = (data) => jsonApi.post('/api/verify-otp',data);
 export const activate = (formData) => formApi.post('/api/activate',formData);
 export const logout = () => jsonApi.post('/api/logout');
+export const createRoom = (data) => jsonApi.post('/api/rooms',data);
+export const getAllRooms = () => jsonApi.get('/api/rooms'); 

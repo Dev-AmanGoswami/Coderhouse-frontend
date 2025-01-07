@@ -1,0 +1,81 @@
+.modalMask{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modalBody{
+    width: 50%;
+    max-width: 500px;
+    background: #1d1d1d;
+    border-radius: 20px;
+    position: relative;
+}
+
+.modalHeader{
+    padding: 30px;
+    border-bottom: 2px solid #262626;
+}
+
+.roomTypes{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.roomTypeBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.roomTypeBox:not(:last-child) span{
+    margin-top: 9px;
+}
+
+.roomTypeBox:last-child span{
+    margin-top: 13px;
+}
+
+.roomTypeBox.active{
+    background: #262626;
+}
+
+.heading{
+    margin-bottom: 5px;
+}
+
+.subHeading{
+    font-size: 18px;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.modalFooter{
+    padding: 30px;
+    text-align: center;
+}
+
+.modalFooter h2{ 
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.closeButton{
+    position: absolute;
+    right: 8px;
+    top: 15px;
+    background: none;
+    cursor: pointer;
+    border: none;
+}

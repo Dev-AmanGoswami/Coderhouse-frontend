@@ -1,17 +1,19 @@
 import './App.css';
 import { BrowserRouter, Routes, Route, Outlet, Navigate} from 'react-router-dom';
 import Home from './pages/Home/Home';
-import Navigation from './components/global/navigation/Navigation';
+import Navigation from './components/global/Navigation/Navigation';
 import Authenticate from './pages/Authenticate/Authenticate';
 import Activate from './pages/Activate/Activate';
 import Rooms from './pages/Rooms/Rooms';
-import Loader from './components/global/loader/Loader';
+import ChatRoom from './pages/ChatRoom/ChatRoom';
+import Loader from './components/global/Loader/Loader';
 
 // Redux
 import { useSelector } from 'react-redux';
 
 // Hooks
 import { useLoadingWithRefresh } from './hooks/useLoadingWithRefresh';
+
 
 function App() {
   // Refresh token rotation -> If page gets refreshed we will be getting new access tokens -> Token security
@@ -30,6 +32,7 @@ function App() {
         </Route>
         <Route element={<ProtectedRoute />}>
           <Route path="/rooms" element={<Rooms />} />
+          <Route path="/room/:id" element={<ChatRoom />} />
         </Route>
       </Routes>
     </BrowserRouter>

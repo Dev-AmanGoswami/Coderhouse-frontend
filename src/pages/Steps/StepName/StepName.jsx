@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Card from "../../../components/global/card/Card";
-import Button from "../../../components/global/button/Button";
+import Card from "../../../components/global/Card/Card";
+import Button from "../../../components/global/Button/Button";
 import TextInput from "../../../components/global/TextInput/TextInput";
 import { BsEmojiSunglassesFill } from "react-icons/bs";
 import { FaLongArrowAltRight } from "react-icons/fa";

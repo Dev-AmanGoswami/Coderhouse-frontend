@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Card from "../../../components/global/card/Card";
-import Button from "../../../components/global/button/Button";
-import UploadLoader from "../../../components/global/uploadLoader/UploadLoader";
+import Card from "../../../components/global/Card/Card";
+import Button from "../../../components/global/Button/Button";
+import UploadLoader from "../../../components/global/UploadLoader/UploadLoader";
 import { MdOutlineMonochromePhotos } from "react-icons/md";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import styles from './StepAvatar.module.css';
@@ -15,12 +15,14 @@ import { setAvatar } from "../../../store/slices/activateSlice";
 import { activate } from "../../../http";
 import { setAuth } from "../../../store/slices/authSlice";
 
+// Cloud
+import cloudLinks from "../../../cloud-links.json";
 
 const StepAvatar = () => {
     const { name, avatar } = useSelector((state) => state.activate);
     const dispatch = useDispatch();
 
-    const [image, setImage] = useState('https://clipart-library.com/new_gallery/70-709202_download-animals-monkey-png-transparent-images-transparent-bad.png');
+    const [image, setImage] = useState(cloudLinks.monkeyAvatar);
     const [avatarFile, setAvatarFile] = useState(null);
 
     const [uploadLoader, setUploadLoader] = useState(false);

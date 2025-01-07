@@ -11,6 +11,9 @@ import { setAuth } from "../../../store/slices/authSlice";
 // APIs
 import { logout } from "../../../http";
 
+// Cloud
+import cloudLinks from "../../../cloud-links.json";
+
 const Navigation = () => {
     const dispatch = useDispatch();
     const { isAuth, user } = useSelector((state) => state.auth);
@@ -26,30 +29,33 @@ const Navigation = () => {
     const logoText = {
         margin: '10px'
     }
-    
+
     const logoutUser = async () => {
-        try{
-            const {data} = await logout();
-            dispatch(setAuth(data));    
-        }catch(error){
+        try {
+            const { data } = await logout();
+            dispatch(setAuth(data));
+        } catch (error) {
             console.log(error);
         }
     }
-    
+
 
     return (
         <nav className={`${styles.navbar} container`}>
             <Link to="/" style={brandStyle}>
-                <MdWavingHand color="yellow" size={40}/>
+                <MdWavingHand color="yellow" size={40} />
                 <span style={logoText}>Codershouse</span>
             </Link>
-            <div className={styles.navRight}>
-                <h3>{user.name}</h3>
-                <Link to="/">
-                    <img className={styles.avatar} src='https://clipart-library.com/new_gallery/70-709202_download-animals-monkey-png-transparent-images-transparent-bad.png' width="40" height="40" alt="avatar" />
-                </Link>
-            { isAuth && <button onClick={logoutUser}><RiLogoutCircleRFill size={30} color="0077FF" /></button> }
-            </div>
+            {
+                isAuth &&
+                <div className={styles.navRight}>
+                    <h3>{user.name}</h3>
+                    <Link to="/">
+                        <img className={styles.avatar} src={cloudLinks.monkeyAvatar} width="40" height="40" alt="avatar" />
+                    </Link>
+                    <button onClick={logoutUser}><RiLogoutCircleRFill size={30} color="0077FF" /></button>
+                </div>
+            }
         </nav>
     );
 }
