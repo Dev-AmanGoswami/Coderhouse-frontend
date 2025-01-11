@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Card from "../../../components/global/Card/Card";
 import Button from "../../../components/global/Button/Button";
+import Loader from "../../../components/global/loader/Loader";
 import TextInput from "../../../components/global/TextInput/TextInput";
 import { FaLock } from "react-icons/fa6";
 import { FaLongArrowAltRight } from "react-icons/fa";
@@ -10,7 +11,6 @@ import { verifyOtp } from "../../../http";
 // Redux
 import { useSelector, useDispatch } from "react-redux";
 import { setAuth } from "../../../store/slices/authSlice";
-import Loader from "../../../components/global/Loader/Loader";
 
 const StepOtp = ({ onNext }) => {
     const [otp, setOtp] = useState('');

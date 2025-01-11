@@ -6,7 +6,7 @@ import Authenticate from './pages/Authenticate/Authenticate';
 import Activate from './pages/Activate/Activate';
 import Rooms from './pages/Rooms/Rooms';
 import ChatRoom from './pages/ChatRoom/ChatRoom';
-import Loader from './components/global/Loader/Loader';
+import Loader from './components/global/loader/Loader';
 
 // Redux
 import { useSelector } from 'react-redux';

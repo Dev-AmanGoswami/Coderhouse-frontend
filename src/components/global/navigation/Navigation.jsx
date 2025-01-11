@@ -49,10 +49,10 @@ const Navigation = () => {
             {
                 isAuth &&
                 <div className={styles.navRight}>
-                    <h3>{user.name}</h3>
-                    <Link to="/">
+                    <h3>{ user?.name }</h3>
+                    { user?.avatar &&<Link to="/">
                         <img className={styles.avatar} src={cloudLinks.monkeyAvatar} width="40" height="40" alt="avatar" />
-                    </Link>
+                    </Link> }
                     <button onClick={logoutUser}><RiLogoutCircleRFill size={30} color="0077FF" /></button>
                 </div>
             }

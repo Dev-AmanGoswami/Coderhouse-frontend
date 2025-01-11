@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Card from "../../../components/global/Card/Card";
 import Button from "../../../components/global/Button/Button";
-import UploadLoader from "../../../components/global/UploadLoader/UploadLoader";
+import UploadLoader from "../../../components/global/uploadLoader/UploadLoader";
 import { MdOutlineMonochromePhotos } from "react-icons/md";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import styles from './StepAvatar.module.css';

@@ -22,13 +22,15 @@ const Rooms = () => {
         setShowAddRoomModal(false);
     }
 
+
     useEffect(()=>{
         const fetchAllRoomsfunc = async () => {
             const { data } = await getAllRooms();
             setRooms(data);
-        }
+        }    
         fetchAllRoomsfunc();
     },[]);
+
     return (
         <>
             <div className="container">
@@ -49,16 +51,12 @@ const Rooms = () => {
                         rooms.map((room) =>
                             <>
                                 <RoomCard key={ room.id } room={ room } />                            
-                                <RoomCard key={ room.id } room={ room } />                            
-                                <RoomCard key={ room.id } room={ room } />                            
-                                <RoomCard key={ room.id } room={ room } />                            
-                                <RoomCard key={ room.id } room={ room } />                            
                             </>
                         )
                     }
                 </div>
             </div>
-            {showAddRoomModal && <AddRoomModal onClose={ closeAddRoomModal }/>}
+            {showAddRoomModal && <AddRoomModal onClose={ closeAddRoomModal } />}
         </>
     );
 }

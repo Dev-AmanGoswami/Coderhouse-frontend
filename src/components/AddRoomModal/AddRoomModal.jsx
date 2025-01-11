@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import TextInput from '../global/TextInput/TextInput';
 import Button from '../global/Button/Button';
 import { ImCross } from "react-icons/im";
@@ -13,14 +13,14 @@ import { createRoom as create } from '../../http';
 import cloudLinks from "../../cloud-links.json";
 
 const AddRoomModal = ({ onClose }) => {
-    const history = useHistory();
+    const navigate = useNavigate();
     const [ roomType, setRoomType ] = useState('open');
     const [ topic, setTopic ] = useState('');   
     const createRoom = async () => {
         try{
             if(!topic) return;
             const { data } = await create({ topic, roomType });
-            history.push(`/room/${data.id}`);
+            navigate(`/room/${data.id}`);
         }catch(error){
             console.log(error.message);
         }
