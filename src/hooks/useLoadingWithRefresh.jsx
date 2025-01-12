@@ -11,6 +11,7 @@ export const useLoadingWithRefresh = () => {
     useEffect(() => {
         (async () => {
             try {
+                console.log("Aman: ",process.env);
                 // Call API if cookie is present
                 const { data } = await axios.get(`${process.env.REACT_APP_API_URL}/api/refresh`, {
                     withCredentials: true
